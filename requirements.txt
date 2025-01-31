@@ -1,0 +1,4 @@
+openai
+deepgram-sdk 
+python-dotenv
+httpx
