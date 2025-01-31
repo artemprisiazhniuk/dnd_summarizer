@@ -2,3 +2,4 @@ openai
 deepgram-sdk 
 python-dotenv
 httpx
+tqdm

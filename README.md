@@ -3,6 +3,7 @@ Provided a recording of DnD game session, transcribes it (DeepGram) and corrects
 
 Steps to use:
 1. Create *data/recordings/* folder, put audio recording in the folder.
+2. Run *cut.sh data/recordings/<filename>* to partition.
 2. Create *data/summaries/* folder for results.
 3. Create *.env* with **OPENAI_API_KEY, DEEPGRAM_API_KEY**
 4. *docker build -t dnd_summarizer .*
