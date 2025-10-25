@@ -1,0 +1,1 @@
+docker run --rm -v "$(pwd)/data/summaries:/app/data/summaries" dnd_summarizer -m gpt-5-nano --temperature 1

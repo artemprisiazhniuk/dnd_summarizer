@@ -1,5 +1,5 @@
 openai
-deepgram-sdk 
+deepgram-sdk==3.8.0
 python-dotenv
 httpx
 tqdm

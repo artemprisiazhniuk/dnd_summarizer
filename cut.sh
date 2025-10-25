@@ -1,5 +1,15 @@
 #!/bin/bash
 
+part_length_in_minutes=$1
+if [ -z "$part_length_in_minutes" ]; then
+    part_length_in_minutes=45
+fi
+
+part_length_threshold=$2
+if [ -z "$part_length_threshold" ]; then
+    part_length_threshold=5
+fi
+
 # Loop through all mp3 files in the data/recordings directory
 for input_filename in ./data/recordings/*.mp3; do
     input_filename="${input_filename%.mp3}"
@@ -11,12 +21,13 @@ for input_filename in ./data/recordings/*.mp3; do
     echo "Duration: $duration seconds"
 
     # Define the length of each part in seconds (1 hour)
-    part_length=$((60 * 70))
+    part_length=$((60 * $part_length_in_minutes))
 
 
     # Calculate the number of parts
     num_parts=$((duration / part_length))
-    if [ $((duration - num_parts * part_length)) -gt $((60 * 10))]; then
+    # If the remaining duration is more than threshold, add an extra part
+    if [ $((duration - num_parts * part_length)) -gt $((60 * $part_length_threshold))]; then
         num_parts=$((num_parts + 1))
     fi
 
